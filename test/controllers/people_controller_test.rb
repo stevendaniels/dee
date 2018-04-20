@@ -34,8 +34,14 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update person" do
-    patch person_url(@person), params: { person: { email: @person.email, name: @person.name, notes: @person.notes, title: @person.title, url: @person.url } }
+    old_notes = @person.notes
+    new_notes = old_notes.reverse
+
+    patch person_url(@person), params: { person: { email: @person.email, name: @person.name, notes: new_notes, title: @person.title, url: @person.url } }
     assert_redirected_to person_url(@person)
+
+    expected_changes = { "notes" => [old_notes, new_notes] }
+    assert_equal expected_changes, Change.for(@person).last.changed_values
   end
 
   test "should destroy person" do

@@ -1,6 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+# create some example people
 michael = Person.create!(
   name: "Nichael \"Michael\" Bluth",
   email: "michael@example.com",
@@ -24,3 +25,9 @@ maeby = Person.create!(
   title: "Studio executive",
   url: "https://en.wikipedia.org/wiki/List_of_Arrested_Development_characters#Maeby_F.C3.BCnke",
 )
+
+# create some changes
+michael.update_attribute :name, "Michael Bluth"
+gob.update_attribute :title, "Beekeeper"
+gob.update_attribute :title, "Illusionist"
+maeby.update_attribute :email, "maebyf@example.com"
