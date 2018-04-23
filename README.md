@@ -7,10 +7,13 @@ First let's make sure you can run the app locally
 - use ruby 2.5.0
 - `bundle`
 - `rake db:setup` to get a db w/ some sample data.
-- `rake test test:system` and ensure everything passes.
+- `rake test` to make sure the environment is sane.
+- `rake test:system` to run the system tests.
+    - If you get errors about `chomedriver` or the tests hang, the issue is likely a `chromedriver` configuration problem for you locally. Don't worry about that or get hung up on it. Feel free to ignore the system tests and move on as long as the app itself runs fine.
+    - If it passes fine, you can run both the system and non-system tests together with `rake test test:system` going forward.
 - `rails s` and make sure you can view http://localhost:3000/ and see the example data
 
-Email jeffrey@dribbble.com if bump into trouble.
+Email jeffrey@dribbble.com if you bump into trouble.
 
 ### Intro
 
@@ -36,7 +39,7 @@ Here's the features we'd like for you to build:
 
 ### Instructions
 
-Complete as many goals above as you wish in the amount of time you want to spend on this. Don't feel like you have to complete each goal. We're mostly interested in learning about how you think and communicate.
+Complete as many goals above as you wish in the amount of time you want to spend on this. Don't feel like you have to complete each goal and please don't spend more than 2 hours (cumulative) on this. We're mostly interested in learning about how you think and communicate.
 
 Try to use atomic commits with well-written commit messages (the current commit messages in this repo are not good examples).
 
